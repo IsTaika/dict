@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>All your words:</h1>
+    {% if dict_list %}
+    <ul>
+    <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">English word</li>
+            <li class="list-group-item">Transcription</li>
+            <li class="list-group-item">Translate</li>
+    </ul>
+        {% for word in dict_list %}
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">{{word.eng_word}}</li>
+            <li class="list-group-item">{{word.transcript}}</li>
+            <li class="list-group-item">{{word.rus_word}}</li>
+        </ul>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>You don't write a single word :(</p>
+    {% endif %}
+{% endblock %}
